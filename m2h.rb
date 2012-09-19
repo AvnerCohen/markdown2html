@@ -32,7 +32,7 @@ end
 
 def to_html(file_content)
 	begin
-		RestClient.post 'http://developer.github.com/v3/markdown/', JSON.generate({"text" => file_content})
+		RestClient.post 'https://api.github.com/markdown', JSON.dump({"text" => file_content})
 	rescue => e
 		e.response
 	end
