@@ -34,14 +34,26 @@ def to_html(file_content)
 	begin
 		RestClient.post 'https://api.github.com/markdown', JSON.dump({"text" => file_content})
 	rescue => e
+		puts "**FAIURE**\n"
 		e.response
+		exit
 	end
 
 end
 
 
 
-puts to_html(contents)
+response = to_html(contents)
+
+if options[:output_filename]
+	File.open(options[:output_filename], 'w') {|f| f.write(response) }
+	puts "#{options[:output_filename]} was written, #{response.length} bytes."
+else
+	puts response
+end
+
+puts "\n\nDONE!"
+
 
 
 
