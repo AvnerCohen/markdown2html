@@ -5,6 +5,6 @@ Simply pipe a markdown file to the m2h.rb command file and output the hmtl to a 
 
 Support command line options:
 
-m2h.rb [filename] [optional arguments]
+m2h.rb -i [markdown filename]  [optional arguments]
 
 *-o* - Output to a file name rather than stdout
