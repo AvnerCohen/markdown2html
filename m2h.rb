@@ -9,7 +9,7 @@ opt_parser = OptionParser.new do |opt|
 	opt.banner = "Usage: r2h.rb [OPTIONS]"
 	opt.separator  ""
 	opt.separator  "Options"
-	opt.on("-i","--output input_filename","Input file nae") do |input_filename|
+	opt.on("-i","--input input_filename","Input file name") do |input_filename|
 		options[:input_filename] = input_filename
 	end
 	opt.on("-o","--output output_filename","Output to a file") do |output_filename|
@@ -25,7 +25,7 @@ opt_parser.parse!
 begin
 	contents = File.read(options[:input_filename])
 rescue
-	puts "**FAIURE**\nCouldn't find file '#{options[:input_filename]}'. Pray to your gods."
+	puts "**FAIURE**\nCouldn't find file '#{options[:input_filename]}'. Make sure to use the -i option."
 	exit
 end
 
